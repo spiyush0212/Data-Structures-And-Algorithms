@@ -27,10 +27,7 @@ public:
     int networkDelayTime(vector<vector<int>>& times, int n, int k) {
         const int INF = 1e9;
 
-        vector<vector<int>> dist(
-            n + 1,
-            vector<int>(n + 1, INF)
-        );
+        vector<vector<int>> dist(n + 1, vector<int>(n + 1, INF));
 
         // Distance from a node to itself
         for (int i = 1; i <= n; i++)
@@ -56,10 +53,7 @@ public:
                     if (dist[via][j] == INF)
                         continue;
 
-                    dist[i][j] = min(
-                        dist[i][j],
-                        dist[i][via] + dist[via][j]
-                    );
+                    dist[i][j] = min(dist[i][j], dist[i][via] + dist[via][j]);
                 }
             }
         }
